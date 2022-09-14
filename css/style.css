@@ -1,0 +1,226 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  --color: #d9e1f2;
+  --global-background: #131720;
+}
+body {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--color);
+  background: var(--global-background);
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: normal;
+  letter-spacing: 0.4rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.themes {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+  padding: 0.4rem 2rem 0.4rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.8rem;
+}
+.theme-color {
+  margin: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+.theme-color:first-of-type {
+  margin-left: 2rem;
+}
+.theme-input {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+}
+.theme-input:checked + .theme-icon {
+  box-shadow: 0 0 0 0.5rem var(--global-background),
+    0 0 0 0.6rem rgba(255, 255, 255, 0.2);
+  transform: scale(1);
+}
+.theme-input:focus + .theme-icon {
+  box-shadow: 0 0 0 0.5rem var(--global-background), 0 0 0 0.6rem var(--color);
+}
+.theme-icon {
+  display: inline-block;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 100rem;
+  background: var(--color);
+  transform: scale(0.6);
+  transition: 0.2s;
+}
+
+.switches[data-theme="green"] {
+  --primary-light: #19d294;
+  --primary-dark: #094934;
+  --ripple: rgba(25, 210, 148, 0.102);
+  --focus: #24c690;
+}
+.switches[data-theme="blue"] {
+  --primary-light: #1994d2;
+  --primary-dark: #093449;
+  --ripple: rgba(25, 148, 210, 0.1);
+  --focus: var(--primary-light);
+}
+
+.switches[data-theme="red"] {
+  --primary-light: #eb2f64;
+  --primary-dark: #222;
+  --ripple: rgba(248, 13, 80, 0.114);
+  --focus: var(--primary-light);
+}
+
+.switches[data-theme="yellow"] {
+  --primary-light: #fffc00;
+  --primary-dark: #080808;
+  --ripple: rgba(246, 242, 6, 0.112);
+  --focus: var(--primary-light);
+}
+
+.switches[data-theme="purple"] {
+  --primary-light: #8a04ff;
+  --primary-dark: #1f0139;
+  --ripple: rgba(136, 0, 255, 0.101);
+  --focus: var(--primary-light);
+}
+
+.switches {
+  display: flex;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.switch:not(:last-of-type) {
+  margin-right: 4rem;
+}
+.switch-label {
+  position: relative;
+  cursor: pointer;
+}
+.switch-input {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.switch-input:focus + .switch-design {
+  box-shadow: 0 0 0 0.1rem var(--global-background), 0 0 0 0.2rem var(--focus);
+}
+.switch {
+  --width: 6rem;
+  --height: 3rem;
+  --background: hsl(0, 0%, 30%);
+  --checked-background: var(--primary-dark);
+  --thumb-size: 1.6rem;
+  --thumb-ripple-color: var(--ripple);
+  --thumb-background: hsl(0, 0%, 65%);
+  --checked-thumb-background: var(--primary-light);
+  --thumb-space-between-edges: 0.6rem;
+  --thumb-out: var(--thumb-space-between-edges);
+}
+.switch-1,
+.switch-3,
+.switch-5,
+.switch-7 {
+  --width: 4rem;
+  --height: 1.6rem;
+  --thumb-size: 2rem;
+  --thumb-space-between-edges: 0rem;
+  --thumb-out: -0.3rem;
+}
+.switch-2,
+.switch-6 {
+  --background: hsla(0, 0%, 20%);
+}
+.switch-3,
+.switch-4 {
+  --border: 1px solid hsl(0, 0%, 60%);
+  --background: transparent;
+}
+.switch-7 {
+  --width: 3rem;
+  --thumb-out: calc(
+    (var(--thumb-size) / 2) - ((var(--thumb-size) / 2) * 2) + 0.2rem
+  );
+}
+.switch-design {
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  border: var(--border);
+  border-radius: 100rem;
+  background: var(--background);
+  position: relative;
+  transition: 0.2s, box-shadow 0s;
+}
+.switch-design::before {
+  content: "";
+  position: absolute;
+  left: var(--thumb-out);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 100rem;
+  background: var(--thumb-background);
+  transition: inherit;
+}
+.switch-5 .switch-input:not(:checked) + .switch-design,
+.switch-7 .switch-input:not(:checked) + .switch-design {
+  --thumb-ripple-color: hsla(0, 0%, 65%, 0.1);
+}
+.switch-6 .switch-design {
+  transition: 0.3s, box-shadow 0s;
+}
+.switch-input:checked + .switch-design {
+  border-color: transparent;
+  background: var(--checked-background);
+}
+.switch-input:checked + .switch-design::before {
+  left: calc(100% - (var(--thumb-size) + var(--thumb-out)));
+  background: var(--checked-thumb-background);
+}
+.switch-6 .switch-input:checked + .switch-design::before {
+  left: calc(100% - var(--thumb-out));
+  transform: translate(-100%, -50%);
+}
+.switch-5 .switch-design:hover::before,
+.switch-7 .switch-design:hover::before,
+.switch-5 .switch-input:focus + .switch-design::before,
+.switch-7 .switch-input:focus + .switch-design::before {
+  box-shadow: 0 0 0 0.9rem var(--thumb-ripple-color);
+}
+.switch-6 .switch-design:active::before {
+  width: calc(var(--thumb-size) + 0.4rem);
+}

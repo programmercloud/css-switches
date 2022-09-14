@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Switches</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Switches</h1>
+
+    <div class="themes">
+      <p>Theme:</p>
+
+      <label class="theme-color">
+        <input
+          type="radio"
+          name="color"
+          class="theme-input"
+          value="green"
+          checked
+        />
+        <span class="theme-icon" style="--color: hsl(160, 79%, 46%)"></span>
+      </label>
+
+      <label class="theme-color">
+        <input type="radio" name="color" class="theme-input" value="blue" />
+        <span class="theme-icon" style="--color: hsl(200, 79%, 46%)"></span>
+      </label>
+
+      <label class="theme-color">
+        <input type="radio" name="color" class="theme-input" value="red" />
+        <span class="theme-icon" style="--color: #eb2f64"></span>
+      </label>
+
+      <label class="theme-color">
+        <input type="radio" name="color" class="theme-input" value="yellow" />
+        <span class="theme-icon" style="--color: #fffc00"></span>
+      </label>
+
+      <label class="theme-color">
+        <input type="radio" name="color" class="theme-input" value="purple" />
+        <span class="theme-icon" style="--color: #8e2de2"></span>
+      </label>
+    </div>
+
+    <section class="switches" data-theme="green">
+      <div class="switch switch-1">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-2">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-3">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-4">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-5">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-6">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+
+      <div class="switch switch-7">
+        <label class="switch-label">
+          <input type="checkbox" class="switch-input" />
+          <span class="switch-design"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
